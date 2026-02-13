@@ -1,0 +1,4 @@
+[core]
+    remote = gdrive_local
+['remote "gdrive_local"']
+    url = /mnt/g/My Drive/Datasets/DVC_REMOTE_xray2drr
