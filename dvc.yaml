@@ -1,0 +1,18 @@
+stages:
+  train:
+    cmd: python train.py --dataroot ./datasets/xray2drr --name xray2drr --model 
+      cycle_gan --display_freq -1 --force
+    deps:
+    - datasets/xray2drr
+    - train.py
+    outs:
+    - checkpoints/xray2drr
+  test:
+    cmd: python test.py --dataroot ./datasets/xray2drr --name xray2drr --model 
+      cycle_gan --phase test --direction AtoB --no_dropout
+    deps:
+    - checkpoints/xray2drr
+    - datasets/xray2drr
+    - test.py
+    outs:
+    - results/xray2drr
